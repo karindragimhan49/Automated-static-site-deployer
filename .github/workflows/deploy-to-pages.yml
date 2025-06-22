@@ -4,16 +4,23 @@ name: Build and Deploy Portfolio to GitHub Pages
 on:
   push:
     branches:
-      - main # Triggers the workflow on push events to the main branch
+      - main
   pull_request:
     branches:
-      - main # Also triggers on pull requests to main for validation
+      - main
 
 jobs:
   # Job to build and deploy the site
   build-and-deploy:
     name: Build and Deploy
-    runs-on: ubuntu-latest # Runs on a virtual machine hosted by GitHub
+    runs-on: ubuntu-latest
+    
+    # --- මෙන්න මේ කොටස අලුතෙන් එකතු කරන්න --- #
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    # ------------------------------------------ #
     
     steps:
       - name: Checkout Repository
